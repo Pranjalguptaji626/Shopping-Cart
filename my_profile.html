@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand ml-1">Shopping Cart</a>
+        <div class="dropdown show">
+            <ul class="navbar-nav nav">
+                <li class="nav-item"><a id="profile_button" aria-haspopup="true" aria-expanded="false" role="button" class="nav-link btn btn-outline-secondary p-1 dropdown-toggle" data-toggle="dropdown" data-target="#dropmenu">Pranjal Gupta</a></li>
+            </ul>
+            <div class="dropdown-menu dropdown-menu-right" id="dropmenu">
+                <div class="card">
+                    <div class="card-img-top">
+                        <div class="col-auto"><img src="pranjal_photo.JPG" class="img-fluid" alt=""></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <dl>
+                                <dt>Name:</dt>
+                                <dd>Pranjal Gupta</dd>
+                                <dt>Gender:</dt>
+                                <dd>Male</dd>
+                            </dl>
+                        </div>
+                        <div class="row justify-content-center">
+                            <a href="my_profile.html" class="btn btn-primary" role="button">Edit profile</a>
+                        </div>
+                        <br>
+                        <div class="row justify-content-center">
+                          <a href="index.html" class="btn btn-danger" role="button">Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="border border-primary rounded pt-3 mx-4 mt-4">
+        <div class="form-group row">
+            <label for="#fname" class="col-form-label col-4 ml-1">First Name:</label>
+            <input type="text" placeholder="Pranjal" name="fname" id="fname" class="form-control col-5">
+            <button role="button" class="col-1 px-0 btn btn-outline-primary offset-1"><span class="fa-pencil-square-o fa"></span></button>
+        </div>
+        <div class="form-group row">
+            <label for="#lname" class="col-form-label col-4 ml-1">Last Name:</label>
+            <input type="text" placeholder="Gupta" name="lname" id="lname" class="form-control col-5">
+            <button role="button" class="col-1 px-0 btn btn-outline-primary offset-1"><span class="fa-pencil-square-o fa"></span></button>
+        </div>
+        <div class="form-group row">
+            <label for="#phone" class="col-form-label col-4 ml-1">Phone:</label>
+            <input type="tel" placeholder="9557366743" name="phone" id="phone" class="form-control col-5">
+            <button role="button" class="col-1 px-0 btn btn-outline-primary offset-1"><span class="fa-pencil-square-o fa"></span></button>
+        </div>
+        <div class="form-group row">
+            <label for="#email" class="col-form-label col-4 ml-1">Email:</label>
+            <input type="mail" placeholder="pranjalguptaji626@gmail.com" name="email" id="email" class="form-control col-5">
+            <button role="button" class="col-1 px-0 btn btn-outline-primary offset-1"><span class="fa-pencil-square-o fa"></span></button>
+        </div>
+        <div class="form-group row justify-content-center">
+            <button role="button" id="chpasswd" class="btn btn-primary col-5 col-md-3 px-0 ml-3">Change password</button>
+        </div>
+    </div>
+    <div id="chg_passwd" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header display-2">
+                    <h1>Change Password</h1>
+                </div>
+                <div class="modal-body p-5">
+                    <div class="form-group row justify-content-center">
+                        <input type="password" placeholder="Enter your current password" class="form-control col-12">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <input type="password" placeholder="Enter your new password" class="form-control col-12">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <button role="button" onclick="$('#chg_passwd').modal('hide');" id="ch_passwd" class="btn btn-primary px-5">Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#chpasswd').click(function(){
+        $('#chg_passwd').modal('show');
+    })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</html>

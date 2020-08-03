@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="prod_list.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand ml-1">Shopping Cart</a>
+        <div class="dropdown show">
+            <ul class="navbar-nav nav">
+                <li class="nav-item"><a id="profile_button" aria-haspopup="true" aria-expanded="false" role="button" class="nav-link btn btn-outline-secondary p-1 dropdown-toggle" data-toggle="dropdown" data-target="#dropmenu">Pranjal Gupta</a></li>
+            </ul>
+            <div class="dropdown-menu dropdown-menu-right" id="dropmenu">
+                <div class="card">
+                    <div class="card-img-top">
+                        <div class="col-auto"><img src="pranjal_photo.JPG" class="img-fluid" alt=""></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <dl>
+                                <dt>Name:</dt>
+                                <dd>Pranjal Gupta</dd>
+                                <dt>Gender:</dt>
+                                <dd>Male</dd>
+                            </dl>
+                        </div>
+                        <div class="row justify-content-center">
+                            <a href="my_profile.html" class="btn btn-primary" role="button">Edit profile</a>
+                        </div>
+                        <br>
+                        <div class="row justify-content-center">
+                          <a href="index.html" class="btn btn-danger" role="button">Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+        <div class="py-5">
+          <div class="form-group row ml-2">
+            <input type="text" name="search" placeholder="Search" id="search"class="form-control col-4">
+            <button class="btn btn-primary ml-2 col-2" id="search_btn"><span class="fa fa-search"></span></button>
+          </div>
+          <div class="form-group d-flex row justify-content-start ml-1 pb-4">
+            <label for="sort" class="col-form-label col-3 col-md-2 font-weight-bold">Sort by: </label>
+            <select name="sort" id="sort" class="form-control col-5 col-md-2">
+              <option value="lth">Low to high</option>
+              <option value="htl">High to low</option>
+              <option value="relv">Relevance</option>
+            </select>
+          </div>
+          <hr>
+          <div class="pt-4">
+            <div class="row mx-md-auto" id="card-grid">
+            </div>
+          </div>
+          <br>
+          <div class="row justify-content-center">
+            <a role="button" href="wishlist.html" class="text-white btn btn-primary col-auto mx-auto">Proceed to wishlist <span class="fa fa-long-arrow-right"></span></a>
+          </div>
+          <br>
+          <div class="row justify-content-center">
+            <a role="button" href="cart.html" class="text-white btn btn-primary col-auto mx-auto">Proceed to cart <span class="fa fa-long-arrow-right"></span></a>
+          </div>
+        </div>
+</body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/x-handlebars-template" id="card-template">
+  {{#each products}}
+  <div class="col-md-4 py-md-4 py-2">
+    <div class="card p-4 h-200 shadow-lg">
+      <div class="badge badge-success mb-2 mx-auto text-wrap" style="width:20%;">
+        <h6>{{discount}}</h6>
+      </div>
+        <img src="{{image}}" style="width:80%; height:40%" height="20%" class="card-img-top img-fluid" alt="">
+      <div class="card-block">
+        <h4 class="card-title">{{name}}</h4>
+        <h6 class="card-subtitle d-inline"><span>&#8377;</span>{{curr_price}}</h6>
+        <h6 class="card-subtitle text-muted d-inline"><del>{{actual_price}}</del></h6>
+        <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+        <a href="#" class="card-link btn btn-outline-primary"><span class="fa fa-minus"></span></a>
+        <h4 class="d-inline mx-1">0</h1>
+        <a href="#" class="card-link btn btn-outline-primary mr-4"><span class="fa fa-plus"></span></a>
+        <div class="d-inline row">
+          <button type="button" class="btn btn-info btn-sm col-2 offset-2 offset-md-1"><span class="fa fa-shopping-cart"></span></button>
+          <button type="button" class="btn btn-danger btn-sm col-2"><span class="fa fa-heart"></span></button>
+        </div>
+        <!-- <div class="pl-5 ml-4 d-inline"><button type="button" class="btn btn-info btn-sm ml-5">Add to <span class="fa fa-shopping-cart"></span></button></div>
+        <button type="button" class="btn btn-danger btn-sm"><span class="fa fa-heart"></span></button> -->
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</script>
+<script>
+  $(document).ready(function(){
+    var source = $('#card-template').html();
+    var temp = Handlebars.compile(source);
+    $('#card-grid').html(temp(product_list));
+  })
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Shopping Cart</a>
+        <!-- <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#yo">Menu</button> -->
+        <div class="mr-md-">
+            <ul class="navbar-nav nav">
+                <li class="nav-item"><a id="login_button" class="nav-link btn btn-outline-secondary p-1">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main_background">
+        <div class="row align-items-center p-5">
+            <div class="col-12 col-md-4 text-white text-center font-weight-bold">
+                <h1 class="disp">Welcome to Shopping Cart</h1>
+                <br>
+                <h3 class="disp2">"Best place to buy stuff at hottest deals"</h4>
+            </div>
+            <div class="col-12 col-md-6 offset-md-2 mt-md-0 mt-5">
+                <div class="border border-primary rounded py-2 py-md-5 px-md-3" id="signup_form">
+                    <div class="form-group row justify-content-center opacity-full">
+                        <input type="text" name="firstname" id="firstname" placeholder="First Name" class="col-4 form-control opacity-full">
+                        <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="col-4 offset-1 form-control">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <input type="email" name="username" id="username" placeholder="Username@example.com" class="col-9  form-control">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <input type="password" name="passwd" id="passwd" placeholder="Password" class="col-9  form-control">
+                    </div>
+                    <div class="row justify-content-center">
+                        <button id="signup_button" class="btn btn-primary px-5">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="login_form" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header display-3">
+                    <h1>Login</h1>
+                </div>
+                <div class="modal-body p-5">
+                    <div class="form-group row justify-content-center">
+                        <input type="text" placeholder="Enter your username" class="form-control col-12">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <input type="password" placeholder="Enter your password" class="form-control col-12">
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <a role="button" href="dashboard.html" id="login_button" class="btn btn-primary px-5">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    $('#login_button').click(function(){
+        $('#login_form').modal('show');
+    })
+</script>
+</html>
